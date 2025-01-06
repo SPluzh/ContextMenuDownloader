@@ -47,7 +47,7 @@ This project adds a **"Download Here"** option to the Windows Explorer context m
    - Run the `download_dependencies.bat` file to automatically download and extract `wget`, `yt-dlp`, and `FFmpeg` in the current directory.
 
 3. **Add to the Context Menu:**
-   - Double-click the `context_menu_add.reg` file to add the **"Download Here"** option.
+   - Double-click the `add_context_menu.bat` file to add the **"Download Here"** option.
    - Confirm the changes when prompted.
 
 4. **Add Shift+Right-Click Option (Optional):**
@@ -81,7 +81,7 @@ This project adds a **"Download Here"** option to the Windows Explorer context m
 ## Uninstallation
 
 1. **Remove the Context Menu Entry:**
-   - Double-click the `context_menu_remove.reg` file to remove the **"Download Here"** option.
+   - Double-click the `remove_context_menu.bat` file to remove the **"Download Here"** option.
 
 2. **Remove Shift+Right-Click Option (Optional):**
    - If you added the **"Download Here"** option with `Shift`, run `remove_shift_context_menu.bat`.
