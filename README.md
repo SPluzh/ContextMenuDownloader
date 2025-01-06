@@ -39,7 +39,7 @@ This project adds a **"Download Here"** option to the Windows Explorer context m
 1. **Clone or Download This Repository:**
    - Clone the repository:
      ```bash
-     git clone https://github.com/your-username/context-menu-downloader.git
+     git clone https://github.com/SPluzh/ContextMenuDownloader.git
      ```
    - Or download the ZIP file and extract it.
 
@@ -118,7 +118,7 @@ This project adds a **"Download Here"** option to the Windows Explorer context m
 Here’s the recommended folder structure:
 
 
-context-menu-downloader/ 
+ContextMenuDownloader/ 
    - download_to_folder.bat # Main script for downloading files 
    - wget.exe # wget executable for downloading files 
    - yt-dlp.exe # yt-dlp executable for downloading videos 
