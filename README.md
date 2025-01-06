@@ -120,7 +120,7 @@ Here’s the recommended folder structure:
 
 context-menu-downloader/ 
    - download_to_folder.bat # Main script for downloading files 
-   - nwget.exe # wget executable for downloading files 
+   - wget.exe # wget executable for downloading files 
    - yt-dlp.exe # yt-dlp executable for downloading videos 
    - ffmpeg.exe # FFmpeg executable for merging video and audio 
    - video.txt # List of video websites for yt-dlp 
