@@ -4,6 +4,10 @@ This project adds a **"Download Here"** option to the Windows Explorer context m
 
 
 
+https://github.com/user-attachments/assets/aed905af-ac00-4930-a244-37fc3195c897
+
+
+
 ## Features
 
 - Downloads files using `wget` or `yt-dlp`.
