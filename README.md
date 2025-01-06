@@ -118,18 +118,7 @@ This project adds a **"Download Here"** option to the Windows Explorer context m
 Here’s the recommended folder structure:
 
 
-context-menu-downloader/ 
-├── download_to_folder.bat 
-├── wget.exe 
-├── yt-dlp.exe 
-├── ffmpeg.exe 
-├── video.txt 
-├── context_menu_add.reg 
-├── context_menu_remove.reg 
-├── add_shift_context_menu.bat 
-├── remove_shift_context_menu.bat 
-├── download.ico 
-└── update_yt-dlp.bat
+context-menu-downloader/ │ ├── download_to_folder.bat # Main script for downloading files ├── wget.exe # wget executable for downloading files ├── yt-dlp.exe # yt-dlp executable for downloading videos ├── ffmpeg.exe # FFmpeg executable for merging video and audio ├── video.txt # List of video websites for yt-dlp ├── context_menu_add.reg # Registry file to add the context menu option ├── context_menu_remove.reg # Registry file to remove the context menu option ├── add_shift_context_menu.bat # Adds "Download Here" with Shift+Right-Click ├── remove_shift_context_menu.bat # Removes "Download Here" with Shift+Right-Click ├── download.ico # Custom icon for the context menu option └── update_yt-dlp.bat # Updates yt-dlp to the latest version
 
 ---
 
