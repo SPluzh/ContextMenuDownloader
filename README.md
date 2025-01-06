@@ -2,7 +2,7 @@
 
 This project adds a **"Download Here"** option to the Windows Explorer context menu. It enables users to download files from URLs stored in the clipboard using `wget` or `yt-dlp`, depending on the type of link.
 
-[!Watch the video example](https://github.com/user-attachments/assets/9e4dfbb1-bf29-42f2-bd08-088133950d0f)
+
 
 ## Features
 
