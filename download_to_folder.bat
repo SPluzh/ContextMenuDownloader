@@ -49,7 +49,7 @@ if not exist "%VIDEO_LIST%" (
 set "USE_YTDLP=false"
 for /f "usebackq delims=" %%A in ("%VIDEO_LIST%") do (
     echo Checking site: %%A
-    echo %URL% | findstr /i "%%A" >nul
+    echo "!URL!" | findstr /i "%%A" >nul
     if !errorlevel! equ 0 (
         set "USE_YTDLP=true"
         goto UseYT
@@ -60,12 +60,11 @@ for /f "usebackq delims=" %%A in ("%VIDEO_LIST%") do (
 if "%USE_YTDLP%"=="true" (
     :: Use yt-dlp for matching URLs
     echo Video site detected. Using yt-dlp...
-    "%YTDLP%" -f "bestvideo+bestaudio/best" --merge-output-format mp4 -o "%~1\%%(title)s.%%(ext)s" %URL%
+    "%YTDLP%" -f "bestvideo+bestaudio/best" --merge-output-format mp4 -o "%~1\%%(title)s.%%(ext)s" "!URL!"
 ) else (
     :: Use wget for other URLs
     echo Non-video site detected. Using wget...
-    "%WGET%" -P "%~1" %URL%
+    "%WGET%" -P "%~1" "!URL!"
 )
 
 :: Close the window after downloading
-
