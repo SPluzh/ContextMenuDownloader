@@ -65,7 +65,8 @@ This project adds a **"Download Here"** option to the Windows Explorer context m
    - Copy any file URL (e.g., a direct download link or video URL).
 
 2. **Right-Click in the Desired Folder:**
-   - Hold the `Shift` key, then right-click in the folder where you want to save the file.
+   - If you installed the context menu using `add_context_menu.bat`, simply right-click in the folder where you want to save the file.  
+   - If you used `add_shift_context_menu.bat`, hold the `Shift` key, then right-click in the folder where you want to save the file.
 
 3. **Select "Download Here":**
    - The script will automatically:
@@ -77,6 +78,7 @@ This project adds a **"Download Here"** option to the Windows Explorer context m
    - Videos: Files are named using the video's title (`%(title)s.%(ext)s`).
 
 ---
+
 
 ## Uninstallation
 
