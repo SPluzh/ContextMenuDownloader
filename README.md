@@ -77,10 +77,6 @@ https://github.com/user-attachments/assets/aed905af-ac00-4930-a244-37fc3195c897
     
 https://github.com/user-attachments/assets/68aad1c1-f733-4450-8bf2-d26e6e614202
 
-4. **Output File Naming:**
-   - Regular files: The file retains its original name.
-   - Videos: Files are named using the video's title (`%(title)s.%(ext)s`).
-
 ---
 
 
