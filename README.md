@@ -49,7 +49,7 @@ This project adds a **"Download Here"** option to the Windows Explorer context m
    - Run `download_dependencies.bat` to download and set up `wget`, `yt-dlp`, and `FFmpeg`.
 
 3. **Add to the Context Menu:**
-   - Run `add_shift_context_menu.bat` or double-click `context_menu_add.reg` to add the **"Download Here"** option.  
+   - Run `add_context_menu.bat` to add the **"Download Here"** option.  
      **Note:** These actions may require administrator privileges.  
      - **Recommendation for Windows 11:** Using the Shift+Right-Click option (`add_shift_context_menu.bat`) is recommended, as the standard context menu in Windows 11 is simplified and may hide additional entries.
 
