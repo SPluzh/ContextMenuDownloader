@@ -31,8 +31,8 @@ https://github.com/user-attachments/assets/aed905af-ac00-4930-a244-37fc3195c897
 
 2. **Ensure the following files are in the same folder:**
    - `download_to_folder.bat`
-   - `context_menu_add.reg` (for adding the context menu entry).
-   - `context_menu_remove.reg` (for removing the context menu entry).
+   - `add_context_menu.bat` (for adding the context menu entry).
+   - `remove_context_menu.bat` (for removing the context menu entry).
    - `add_shift_context_menu.bat` (for adding the "Download Here" option with Shift).
    - `remove_shift_context_menu.bat` (for removing the "Download Here" option with Shift).
    - `video.txt` (to define sites handled by `yt-dlp`).
@@ -50,16 +50,13 @@ https://github.com/user-attachments/assets/aed905af-ac00-4930-a244-37fc3195c897
    - Or download the ZIP file and extract it.
 
 2. **Install Dependencies:**
-   - Run the `download_dependencies.bat` file to automatically download and extract `wget`, `yt-dlp`, and `FFmpeg` in the current directory.
+   - Run `download_dependencies.bat` to download and set up `wget`, `yt-dlp`, and `FFmpeg`.
 
 3. **Add to the Context Menu:**
-   - Double-click the `add_context_menu.bat` file to add the **"Download Here"** option.
-   - Confirm the changes when prompted.
+   - Run `add_shift_context_menu.bat` or double-click `context_menu_add.reg` to add the **"Download Here"** option.  
+     **Note:** These actions may require administrator privileges.
 
-4. **Add Shift+Right-Click Option (Optional):**
-   - If you want the **"Download Here"** option to appear when holding the `Shift` key, run `add_shift_context_menu.bat`.
-
-5. **Edit `video.txt`:**
+4. **Edit `video.txt`:**
    - Open `video.txt` with a text editor.
    - Add domains (one per line) for sites to be handled by `yt-dlp` (e.g., `youtube.com`, `vimeo.com`).
 
@@ -88,9 +85,11 @@ https://github.com/user-attachments/assets/aed905af-ac00-4930-a244-37fc3195c897
 
 1. **Remove the Context Menu Entry:**
    - Double-click the `remove_context_menu.bat` file to remove the **"Download Here"** option.
+     **Note:** These actions may require administrator privileges.
 
 2. **Remove Shift+Right-Click Option (Optional):**
    - If you added the **"Download Here"** option with `Shift`, run `remove_shift_context_menu.bat`.
+     **Note:** These actions may require administrator privileges.
 
 3. **Delete the Scripts:**
    - Delete the downloaded folder and all associated files.
@@ -130,8 +129,8 @@ ContextMenuDownloader/
    - yt-dlp.exe # yt-dlp executable for downloading videos 
    - ffmpeg.exe # FFmpeg executable for merging video and audio 
    - video.txt # List of video websites for yt-dlp 
-   - context_menu_add.reg # Registry file to add the context menu option 
-   - context_menu_remove.reg # Registry file to remove the context menu option 
+   - add_context_menu.bat # Registry file to add the context menu option 
+   - remove_context_menu.bat # Registry file to remove the context menu option 
    - add_shift_context_menu.bat # Adds "Download Here" with Shift+Right-Click 
    - remove_shift_context_menu.bat # Removes "Download Here" with Shift+Right-Click 
    - download.ico # Custom icon for the context menu option 
