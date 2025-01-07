@@ -2,11 +2,7 @@
 
 This project adds a **"Download Here"** option to the Windows Explorer context menu. It enables users to download files from URLs stored in the clipboard using `wget` or `yt-dlp`, depending on the type of link.
 
-
-
-https://github.com/user-attachments/assets/aed905af-ac00-4930-a244-37fc3195c897
-
-
+---
 
 ## Features
 
@@ -15,14 +11,14 @@ https://github.com/user-attachments/assets/aed905af-ac00-4930-a244-37fc3195c897
 - Supports high-quality video and audio downloads in MP4 format.
 - Automatically merges video and audio streams if necessary using **FFmpeg**.
 - Context menu integration for easy usage.
-- Custom icon for the context menu option.
+- Custom icon (`download.ico`) for the context menu option.
 
 ---
 
 ## Prerequisites
 
 1. **Install Dependencies:**
-   - Instead of manually downloading dependencies, you can run the `download_dependencies.bat` file to automatically download and extract `wget`, `yt-dlp`, and `FFmpeg`.
+   - Run `download_dependencies.bat` to automatically download and extract `wget`, `yt-dlp`, and `FFmpeg`.
    - Alternatively, manually download and install the following tools:
      - [wget](https://eternallybored.org/misc/wget/) - Command-line file downloader.
      - [yt-dlp](https://github.com/yt-dlp/yt-dlp/releases) - Advanced YouTube downloader.
@@ -32,11 +28,11 @@ https://github.com/user-attachments/assets/aed905af-ac00-4930-a244-37fc3195c897
 2. **Ensure the following files are in the same folder:**
    - `download_to_folder.bat`
    - `add_context_menu.bat` (for adding the context menu entry).
-   - `remove_context_menu.bat` (for removing the context menu entry).
    - `add_shift_context_menu.bat` (for adding the "Download Here" option with Shift).
-   - `remove_shift_context_menu.bat` (for removing the "Download Here" option with Shift).
+   - `remove_context_menu.bat` (for removing the context menu entry).
    - `video.txt` (to define sites handled by `yt-dlp`).
    - `download.ico` (icon used for the context menu option).
+   - `update_yt-dlp.bat` (for updating `yt-dlp`).
 
 ---
 
@@ -54,7 +50,8 @@ https://github.com/user-attachments/assets/aed905af-ac00-4930-a244-37fc3195c897
 
 3. **Add to the Context Menu:**
    - Run `add_shift_context_menu.bat` or double-click `context_menu_add.reg` to add the **"Download Here"** option.  
-     **Note:** These actions may require administrator privileges.
+     **Note:** These actions may require administrator privileges.  
+     - **Recommendation for Windows 11:** Using the Shift+Right-Click option (`add_shift_context_menu.bat`) is recommended, as the standard context menu in Windows 11 is simplified and may hide additional entries.
 
 4. **Edit `video.txt`:**
    - Open `video.txt` with a text editor.
@@ -100,9 +97,9 @@ https://github.com/user-attachments/assets/aed905af-ac00-4930-a244-37fc3195c897
 
 - **Supported Video Formats:**
   - Videos are downloaded in the best available quality and merged into MP4 format whenever possible.
-  
+
 - **Updating Tools:**
-  - Keep `yt-dlp` up-to-date by running the `update_yt-dlp.bat` file to automatically update `yt-dlp`.
+  - If downloading videos stops working, update `yt-dlp` by running the `update_yt-dlp.bat` file.
 
 - **Troubleshooting:**
   - If downloads fail, check for available formats with:
@@ -122,19 +119,20 @@ https://github.com/user-attachments/assets/aed905af-ac00-4930-a244-37fc3195c897
 
 Here’s the recommended folder structure:
 
-
-ContextMenuDownloader/ 
-   - download_to_folder.bat # Main script for downloading files 
-   - wget.exe # wget executable for downloading files 
-   - yt-dlp.exe # yt-dlp executable for downloading videos 
-   - ffmpeg.exe # FFmpeg executable for merging video and audio 
-   - video.txt # List of video websites for yt-dlp 
-   - add_context_menu.bat # Registry file to add the context menu option 
-   - remove_context_menu.bat # Registry file to remove the context menu option 
-   - add_shift_context_menu.bat # Adds "Download Here" with Shift+Right-Click 
-   - remove_shift_context_menu.bat # Removes "Download Here" with Shift+Right-Click 
-   - download.ico # Custom icon for the context menu option 
-   - update_yt-dlp.bat # Updates yt-dlp to the latest version
+```plaintext
+ContextMenuDownloader/
+├── download_to_folder.bat
+├── wget.exe
+├── yt-dlp.exe
+├── ffmpeg.exe
+├── video.txt
+├── add_context_menu.bat
+├── add_shift_context_menu.bat
+├── remove_context_menu.bat
+├── download.ico
+├── update_yt-dlp.bat
+└── download_dependencies.bat
+```
 
 ---
 
