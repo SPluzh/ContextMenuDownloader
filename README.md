@@ -2,6 +2,8 @@
 
 This project adds a **"Download Here"** option to the Windows Explorer context menu. It enables users to download files from URLs stored in the clipboard using `wget` or `yt-dlp`, depending on the type of link.
 
+https://github.com/user-attachments/assets/aed905af-ac00-4930-a244-37fc3195c897
+
 ---
 
 ## Features
@@ -64,10 +66,6 @@ This project adds a **"Download Here"** option to the Windows Explorer context m
 1. **Copy a URL to the Clipboard:**
    - Copy any file URL (e.g., a direct download link or video URL).
 
-
-https://github.com/user-attachments/assets/68aad1c1-f733-4450-8bf2-d26e6e614202
-
-
 2. **Right-Click in the Desired Folder:**
    - If you installed the context menu using `add_context_menu.bat`, simply right-click in the folder where you want to save the file.  
    - If you used `add_shift_context_menu.bat`, hold the `Shift` key, then right-click in the folder where you want to save the file.
@@ -76,6 +74,8 @@ https://github.com/user-attachments/assets/68aad1c1-f733-4450-8bf2-d26e6e614202
    - The script will automatically:
      - Use `wget` for regular file downloads.
      - Use `yt-dlp` for video links in `video.txt`.
+    
+https://github.com/user-attachments/assets/68aad1c1-f733-4450-8bf2-d26e6e614202
 
 4. **Output File Naming:**
    - Regular files: The file retains its original name.
