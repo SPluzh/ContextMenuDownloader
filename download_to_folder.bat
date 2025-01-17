@@ -58,9 +58,16 @@ for /f "usebackq delims=" %%A in ("%VIDEO_LIST%") do (
 
 :UseYT
 if "%USE_YTDLP%"=="true" (
+    echo Updating yt-dlp to the latest version...
+    "%YTDLP%" -U
+    if %ERRORLEVEL%==0 (
+       echo yt-dlp successfully updated!
+    ) else (
+       echo Failed to update yt-dlp. Please check your internet connection or installation.
+    )
     :: Use yt-dlp for matching URLs
     echo Video site detected. Using yt-dlp...
-    "%YTDLP%" -f "bestvideo+bestaudio/best" --merge-output-format mp4 -o "%~1\%%(title)s.%%(ext)s" "!URL!"
+    "%YTDLP%" -f "bestvideo+bestaudio/best" --concurrent-fragments 10 --merge-output-format mp4 -o "%~1\%%(title)s" "!URL!"
 ) else (
     :: Use wget for other URLs
     echo Non-video site detected. Using wget...
