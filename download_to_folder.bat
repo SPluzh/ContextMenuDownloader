@@ -67,7 +67,7 @@ if "%USE_YTDLP%"=="true" (
     )
     :: Use yt-dlp for matching URLs
     echo Video site detected. Using yt-dlp...
-    "%YTDLP%" -f "bestvideo+bestaudio/best" --concurrent-fragments 10 --merge-output-format mp4 -o "%~1\%%(title)s" "!URL!"
+    "%YTDLP%" -f "bestvideo+bestaudio/best" --concurrent-fragments 10 --merge-output-format mp4 -o "%~1\%%(title)s.%%(ext)s" "!URL!"
 ) else (
     :: Use wget for other URLs
     echo Non-video site detected. Using wget...
