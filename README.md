@@ -1,6 +1,7 @@
 # Context Menu Downloader
 
-This project adds a **"Download Here"** option to the Windows Explorer context menu. It enables users to download files from URLs stored in the clipboard using `wget` or `yt-dlp`, depending on the type of link.
+This project adds a **"Download Here"** option to the Windows Explorer context menu. It enables users to download files from URLs stored in the clipboard using `wget` or `yt-dlp`, depending on the type of link.  
+It also supports saving **images directly from the clipboard** as PNG files.
 
 https://github.com/user-attachments/assets/aed905af-ac00-4930-a244-37fc3195c897
 
@@ -12,6 +13,7 @@ https://github.com/user-attachments/assets/aed905af-ac00-4930-a244-37fc3195c897
 - Automatically detects video links (e.g., YouTube, Vimeo) and uses `yt-dlp` for downloading.
 - Supports high-quality video and audio downloads in MP4 format.
 - Automatically merges video and audio streams if necessary using **FFmpeg**.
+- **🖼️ Detects and saves clipboard images as PNG files.**
 - Context menu integration for easy usage.
 - Custom icon (`download.ico`) for the context menu option.
 
@@ -63,17 +65,19 @@ https://github.com/user-attachments/assets/aed905af-ac00-4930-a244-37fc3195c897
 
 ## Usage
 
-1. **Copy a URL to the Clipboard:**
-   - Copy any file URL (e.g., a direct download link or video URL).
+1. **Copy a URL or Image to the Clipboard:**
+   - You can copy any file URL (e.g., a direct download link or video URL).
+   - You can also copy an image (e.g., from a browser, screenshot tool, or image viewer).
 
 2. **Right-Click in the Desired Folder:**
-   - If you installed the context menu using `add_context_menu.bat`, simply right-click in the folder where you want to save the file.  
-   - If you used `add_shift_context_menu.bat`, hold the `Shift` key, then right-click in the folder where you want to save the file.
+   - If you installed the context menu using `add_context_menu.bat`, simply right-click in the folder where you want to save the file or image.  
+   - If you used `add_shift_context_menu.bat`, hold the `Shift` key, then right-click in the folder where you want to save the file or image.
 
 3. **Select "Download Here":**
-   - The script will automatically:
-     - Use `wget` for regular file downloads.
-     - Use `yt-dlp` for video links in `video.txt`.
+   - If an image is detected in the clipboard, it will be saved as a `.png` file with a timestamped filename.
+   - If a URL is detected:
+     - `wget` is used for regular file downloads.
+     - `yt-dlp` is used for video links matching entries in `video.txt`.
     
 https://github.com/user-attachments/assets/68aad1c1-f733-4450-8bf2-d26e6e614202
 
