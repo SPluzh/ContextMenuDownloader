@@ -13,7 +13,7 @@ if %ERRORLEVEL%==0 (
     echo Failed to download yt-dlp.
 )
 
-:: Download FFmpeg (from the specified GitHub release)
+:: Download FFmpeg
 echo Downloading FFmpeg...
 curl -L -o ffmpeg.zip https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-win64-gpl.zip
 if %ERRORLEVEL%==0 (
@@ -22,13 +22,22 @@ if %ERRORLEVEL%==0 (
     echo Failed to download FFmpeg.
 )
 
-:: Download wget (from the provided URL)
+:: Download wget
 echo Downloading wget...
 curl -L -o wget.exe https://eternallybored.org/misc/wget/1.21.4/64/wget.exe
 if %ERRORLEVEL%==0 (
     echo wget downloaded successfully!
 ) else (
     echo Failed to download wget.
+)
+
+:: Download gallery-dl (standalone .exe from GitHub)
+echo Downloading gallery-dl...
+curl -L -o gallery-dl.exe https://github.com/mikf/gallery-dl/releases/latest/download/gallery-dl.exe
+if %ERRORLEVEL%==0 (
+    echo gallery-dl downloaded successfully!
+) else (
+    echo Failed to download gallery-dl.
 )
 
 :: Verify FFmpeg zip file exists before extracting
@@ -54,6 +63,7 @@ rd /s /q "ffmpeg-master-latest-win64-gpl"
 
 :: Clean up downloaded zip file for FFmpeg
 del ffmpeg.zip
+
 echo Finished downloading all dependencies.
 
 pause

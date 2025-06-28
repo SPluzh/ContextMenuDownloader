@@ -37,54 +37,72 @@ if "%URL%"=="" (
     exit /b
 )
 
-:: Define paths to yt-dlp, wget, and video.txt
+:: Define paths to tools and site lists
 set "YTDLP=%~dp0yt-dlp.exe"
 set "WGET=%~dp0wget.exe"
-set "VIDEO_LIST=%~dp0video.txt"
+set "GALLERYDL=%~dp0gallery-dl.exe"
+set "YT-DLP_LIST=%~dp0yt-dlp.txt"
+set "GALLERYDL_LIST=%~dp0gallery-dl.txt"
+set "IG_COOKIES=%~dp0ig_cookies.txt"
 
-:: Check if yt-dlp exists
+:: Check required tools
 if not exist "%YTDLP%" (
     echo yt-dlp.exe not found in the script directory.
     exit /b
 )
-
-:: Check if wget exists
 if not exist "%WGET%" (
     echo wget.exe not found in the script directory.
     exit /b
 )
-
-:: Check if video.txt exists
-if not exist "%VIDEO_LIST%" (
-    echo video.txt not found in the script directory.
+if not exist "%GALLERYDL%" (
+    echo gallery-dl.exe not found in the script directory.
     exit /b
 )
 
-:: Check if the URL matches any video site from video.txt
+:: === Check yt-dlp sites ===
 set "USE_YTDLP=false"
-for /f "usebackq delims=" %%A in ("%VIDEO_LIST%") do (
-    echo Checking site: %%A
-    echo "!URL!" | findstr /i "%%A" >nul
-    if !errorlevel! equ 0 (
-        set "USE_YTDLP=true"
-        goto UseYT
+if exist "%YT-DLP_LIST%" (
+    for /f "usebackq delims=" %%A in ("%YT-DLP_LIST%") do (
+        echo Checking yt-dlp site: %%A
+        echo "!URL!" | findstr /i "%%A" >nul
+        if !errorlevel! equ 0 (
+            set "USE_YTDLP=true"
+            goto UseYT
+        )
     )
 )
+
+:: === Check gallery-dl sites ===
+set "USE_GALLERYDL=false"
+if exist "%GALLERYDL_LIST%" (
+    for /f "usebackq delims=" %%A in ("%GALLERYDL_LIST%") do (
+        echo Checking gallery-dl site: %%A
+        echo "!URL!" | findstr /i "%%A" >nul
+        if !errorlevel! equ 0 (
+            set "USE_GALLERYDL=true"
+            goto UseGalleryDL
+        )
+    )
+)
+
+:: === Default to wget ===
+echo Non-video and non-gallery site detected. Using wget...
+"%WGET%" -P "%~1" "!URL!"
+exit /b
 
 :UseYT
-if "%USE_YTDLP%"=="true" (
-    echo Updating yt-dlp to the latest version...
-    "%YTDLP%" -U
-    if %ERRORLEVEL%==0 (
-        echo yt-dlp successfully updated!
-    ) else (
-        echo Failed to update yt-dlp. Please check your internet connection or installation.
-    )
-    echo Video site detected. Using yt-dlp...
-    "%YTDLP%" -f "bestvideo+bestaudio/best" --concurrent-fragments 10 --merge-output-format mp4 -o "%~1\%%(title)s-%%(id)s.%%(ext)s" "!URL!"
+echo Updating yt-dlp to the latest version...
+"%YTDLP%" -U
+if %ERRORLEVEL%==0 (
+    echo yt-dlp successfully updated!
 ) else (
-    echo Non-video site detected. Using wget...
-    "%WGET%" -P "%~1" "!URL!"
+    echo Failed to update yt-dlp. Please check your internet connection or installation.
 )
+echo Video site detected. Using yt-dlp...
+"%YTDLP%" -f "bestvideo+bestaudio/best" --concurrent-fragments 10 --merge-output-format mp4 -o "%~1\%%(title)s-%%(id)s.%%(ext)s" "!URL!"
+exit /b
 
+:UseGalleryDL
+echo Gallery site detected. Using gallery-dl...
+"%GALLERYDL%" --cookies "%IG_COOKIES%" --directory "" --filename "{date}_{username}_{shortcode}_{num}.{extension}" -d "%~1" "!URL!"
 exit /b
