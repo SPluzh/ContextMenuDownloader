@@ -100,9 +100,17 @@ if %ERRORLEVEL%==0 (
 )
 echo Video site detected. Using yt-dlp...
 "%YTDLP%" -f "bestvideo+bestaudio/best" --concurrent-fragments 10 --merge-output-format mp4 -o "%~1\%%(title)s-%%(id)s.%%(ext)s" "!URL!"
+
+REM If the first attempt fails, try again using generic extractor (Fix Vimeo OAuth 400 error with generic extractor fallback)
+if %ERRORLEVEL% neq 0 (
+    echo First attempt failed. Trying with --force-generic-extractor...
+    "%YTDLP%" -f "bestvideo+bestaudio/best" --concurrent-fragments 10 --merge-output-format mp4 --no-check-certificate --force-generic-extractor -o "%~1\%%(title)s-%%(id)s.%%(ext)s" "!URL!"
+)
+
 exit /b
 
 :UseGalleryDL
 echo Gallery site detected. Using gallery-dl...
-"%GALLERYDL%" --cookies "%IG_COOKIES%" --directory "" --filename "{date}_{username}_{shortcode}_{num}.{extension}" -d "%~1" "!URL!"
+"%GALLERYDL%" --cookies "%IG_COOKIES%" -o sleep-request="[5.0, 15.0]" -o previews=true --sleep 3-10 --directory "" --filename "{date}_{username}_{shortcode}_{num}.{extension}" -d "%~1" "!URL!"
 exit /b
+::pause
