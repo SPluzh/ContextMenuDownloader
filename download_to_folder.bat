@@ -111,6 +111,7 @@ exit /b
 
 :UseGalleryDL
 echo Gallery site detected. Using gallery-dl...
-"%GALLERYDL%" --cookies "%IG_COOKIES%" -o sleep-request="[5.0, 15.0]" -o previews=true --sleep 3-10 --directory "" --filename "{date}_{username}_{shortcode}_{num}.{extension}" -d "%~1" "!URL!"
+"%GALLERYDL%" --cookies "%IG_COOKIES%" -o sleep-request="[1.0, 3.0]" -o previews=true --sleep 1-3 --directory "" --filename "{date}_{username}_{shortcode}_{num}.{extension}" -d "%~1" "!URL!"
 exit /b
+
 ::pause
